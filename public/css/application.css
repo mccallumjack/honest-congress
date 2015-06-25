@@ -4,3 +4,10 @@
 .icon-block .material-icons {
   font-size: inherit;
 }
+
+.cap-building-background {
+  background-image: url('/capitol_building.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+}
