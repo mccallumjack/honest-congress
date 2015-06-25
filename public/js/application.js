@@ -1,14 +1,13 @@
 $(document).ready(function() {
 
+  $('#get-started').on('click',function(event){
+    event.preventDefault();
+    $(this).hide();
+
+  });
+
 });
 
 
+//View
 
-// From Materialize Init File
-(function($){
-  $(function(){
-
-    $('.button-collapse').sideNav();
-
-  }); // end of document ready
-})(jQuery); // end of jQuery name space
