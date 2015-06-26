@@ -21,10 +21,12 @@ $(document).ready(function() {
   $('#new-data-bucket').on('click','#show-politicians',function(event){
     event.preventDefault();
     var state = $('#state-select').val()
+    var data = {:state => state}
 
     var request = $.ajax({
-                          url: url,
-                          dataType: "jsonp"
+                          url: '/politicians',
+                          method: 'POST',
+                          data: data
     })
     var response = request.done(function(data){
       console.log(data);
