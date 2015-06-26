@@ -1,9 +1,7 @@
 class ContributionSummary < ActiveRecord::Base
   belongs_to :politician
-  validates :cid, uniqueness: {scope: :cycle}
 
   def self.create_summaries(summary,politician)
-    return if ContributionSummary.all.map(&:cid).include?(summary["cid"])
     ContributionSummary.create(cycle: summary["cycle"],
                                  chamber: summary["chamber"],
                                  total: summary["total"],

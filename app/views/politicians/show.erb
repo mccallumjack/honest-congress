@@ -5,6 +5,7 @@
     <p>Office: <%= politician.office %></p>
     <p>First Elected: <%= politician.firstelectoff %></p>
     <p>Gender: <%= politician.gender %></p>
+    <p>Candidate ID: <%= politician.cid %></p>
     <p>Party: <%= politician.party %></p>
   </div>
 </div>
@@ -37,7 +38,32 @@
 </div>
 
 <div class="row"> 
-  <h5>Top Contributors By Industry</h5>
+  <h5>Top Contributors</h5>
+  <table id="politician-table" class = "bordered striped">
+    <thead>
+      <tr>
+          <th data-field="id">Organization Name</th>
+          <th data-field="name">Pacs</th>
+          <th data-field="price">Individuals</th>
+          <th data-field="price">Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% politician.top_contributors.each do |contributor| %>
+      <tr>
+        <td><%= contributor.org_name %></td>
+        <td><%= contributor.pacs %></td>
+        <td><%= contributor.indivs %></td>
+        <td><%= contributor.total %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row"> 
+  <h5>Top Industries</h5>
   <table id="politician-table" class = "bordered striped">
     <thead>
       <tr>
@@ -49,7 +75,7 @@
     </thead>
 
     <tbody>
-      <% politician.top_contributors.each do |contributor| %>
+      <% politician.top_industries.each do |contributor| %>
       <tr>
         <td><%= contributor.industry_name %></td>
         <td><%= contributor.pacs %></td>
@@ -60,3 +86,5 @@
     </tbody>
   </table>
 </div>
+
+<a id="restart" class="btn-large waves-effect waves-light orange" href="/">Restart</a>
