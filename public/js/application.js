@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   $('#get-started').on('click',function(event){
     event.preventDefault();
-    $(this).hide();
 
     var path = '/locations/new'
 
@@ -11,11 +10,26 @@ $(document).ready(function() {
                           method: 'GET'
     });
     request.done(function(data){
-      $('#intro-info').hide()
-      $('#new-data-bucket').append(data)
+      $(this).hide();
+      $('#intro-info').hide();
+      $('#new-data-bucket').append(data);
+      $('select').material_select();
     });
 
   });
+
+  $('#new-data-bucket').on('click','#show-politicians',function(event){
+    event.preventDefault();
+    var state = $('#state-select').val()
+
+    var request = $.ajax({
+                          url: url,
+                          dataType: "jsonp"
+    })
+    var response = request.done(function(data){
+      console.log(data);
+    })
+  })
 
 });
 

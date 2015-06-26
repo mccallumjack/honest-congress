@@ -6,6 +6,6 @@ get '/politicians/new' do
 
 end
 
-get '/location/new' do
-  erb :'forms/_location_info.erb', layout: false
+get '/locations/new' do
+  erb :'forms/_location_info', layout: false
 end
