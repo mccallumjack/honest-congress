@@ -21,7 +21,7 @@ $(document).ready(function() {
   $('#new-data-bucket').on('click','#show-politicians',function(event){
     event.preventDefault();
     var state = $('#state-select').val()
-    var data = {:state => state}
+    var data = {state: state};
 
     var request = $.ajax({
                           url: '/politicians',
