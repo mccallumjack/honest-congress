@@ -1,4 +1,5 @@
-<table id="politician-table">
+<h4>Select a Congressman</h4>
+<table id="politician-table" class = "bordered striped">
   <thead>
     <tr>
         <th data-field="id">Name</th>
@@ -8,10 +9,12 @@
   </thead>
 
   <tbody>
+    <% politicians.each do |politician| %>
     <tr>
-      <td>John</td>
-      <td>Eclair</td>
-      <td>$0.87</td>
+      <td><a href="/politicians/<%= politician.id %>"><%= politician.name %></a></td>
+      <td><%= politician.party %></td>
+      <td><%= politician.office %></td>
     </tr>
+    <% end %>
   </tbody>
 </table>

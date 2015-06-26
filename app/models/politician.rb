@@ -20,11 +20,11 @@ class Politician < ActiveRecord::Base
   end
 
   def self.state_parser(string)
-    string.split('')[0..1]
+    string.split('')[0..1].join("")
   end
 
   def self.pull_by_state(state)
-
+    Politician.where("state = '#{state}'" )
   end
 
 

@@ -29,10 +29,26 @@ $(document).ready(function() {
                           data: data
     })
     var response = request.done(function(data){
-      console.log(data);
-    })
-  })
+      $('#new-data-bucket').empty();
+      $('#new-data-bucket').append(data);
+    });
+  });
 
+  $('#new-data-bucket').on('click','#politician-table a', function(event){
+    event.preventDefault();
+    var url = $(this).attr('href');
+    var method = 'GET';
+
+    var request = $.ajax({
+                          url: url,
+                          method: method
+    });
+
+    var response = request.done(function(data){
+      $('#new-data-bucket').empty();
+      $('#new-data-bucket').append(data);
+    });
+  });
 });
 
 

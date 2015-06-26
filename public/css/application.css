@@ -30,3 +30,11 @@
 .m-pd{ 
   padding:15px;
 }
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.mh-m {
+  max-height: 800px;
+}
