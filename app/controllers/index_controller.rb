@@ -18,7 +18,9 @@ end
 get '/politicians/:politician_id' do
   @politician = Politician.find_by_id(params[:politician_id])
   @summary = get_candidate_summaries_by_cid(@politician.cid)
-  p @summary
+  ContributionSummary.create_summaries(@summary,@politician)
+  @top_contributors = get_top_contributors_by_cid(@politician.cid)
+  p @top_contributors
   erb :'politicians/show', locals:{politician: @politician}, layout:false
 end
 
@@ -34,7 +36,7 @@ def get_legislators_by_state(state)
 end
 
 def get_top_contributors_by_cid(cid)
-  CANDIDATE.industries({:cid => cid})["response"]
+  CANDIDATE.industries({:cid => cid})["response"]["industries"]["industry"]
 end
 
 def get_candidate_summaries_by_cid(cid)

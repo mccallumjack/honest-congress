@@ -1,12 +1,62 @@
 <div class="row">
-  <div class="col s12 center">
+  <div class="col s12">
     <h3><%= politician.name %></h3>
-    <h5><%= politician.state %></h5>
-    <h5><%= politician.office %></h5>
-    <h5><%= politician.firstelectoff %></h5>
-    <h5><%= politician.gender %></h5>
-    <h5><%= politician.party %></h5>
+    <p>State: <%= politician.state %></p>
+    <p>Office: <%= politician.office %></p>
+    <p>First Elected: <%= politician.firstelectoff %></p>
+    <p>Gender: <%= politician.gender %></p>
+    <p>Party: <%= politician.party %></p>
   </div>
 </div>
 
-<div class="row"></div>
+<div class="row"> 
+  <h5>Campaign Finance Summary</h5>
+  <table id="politician-table" class = "bordered striped">
+    <thead>
+      <tr>
+          <th data-field="id">Cycle</th>
+          <th data-field="name">Total</th>
+          <th data-field="price">Spend</th>
+          <th data-field="price">Debt</th>
+          <th data-field="price">Cash On Hand</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% politician.contribution_summaries.each do |summary| %>
+      <tr>
+        <td><%= summary.cycle %></td>
+        <td><%= summary.total %></td>
+        <td><%= summary.spend %></td>
+        <td><%= summary.debt %></td>
+        <td><%= summary.cash_on_hand %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row"> 
+  <h5>Top Contributors By Industry</h5>
+  <table id="politician-table" class = "bordered striped">
+    <thead>
+      <tr>
+          <th data-field="id">Industry Name</th>
+          <th data-field="name">Pacs</th>
+          <th data-field="price">Individuals</th>
+          <th data-field="price">Total</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% politician.top_contributors.each do |contributor| %>
+      <tr>
+        <td><%= contributor.industry_name %></td>
+        <td><%= contributor.pacs %></td>
+        <td><%= contributor.indivs %></td>
+        <td><%= contributor.total %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
