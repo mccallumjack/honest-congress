@@ -1,6 +1,5 @@
 class ContributionSummary < ActiveRecord::Base
   belongs_to :politician
-
   def self.create_summaries(summary,politician)
     ContributionSummary.create(cycle: summary["cycle"],
                                  chamber: summary["chamber"],

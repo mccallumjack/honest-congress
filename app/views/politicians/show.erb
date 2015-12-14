@@ -26,11 +26,11 @@
     <tbody>
       <% politician.contribution_summaries.each do |summary| %>
       <tr>
-        <td><%= summary.cycle %></td>
-        <td><%= summary.total %></td>
-        <td><%= summary.spend %></td>
-        <td><%= summary.debt %></td>
-        <td><%= summary.cash_on_hand %></td>
+        <td><%= currency(summary.cycle) %></td>
+        <td><%= currency(summary.total) %></td>
+        <td><%= currency(summary.spend) %></td>
+        <td><%= currency(summary.debt) %></td>
+        <td><%= currency(summary.cash_on_hand) %></td>
       </tr>
       <% end %>
     </tbody>
@@ -53,9 +53,9 @@
       <% politician.top_contributors.each do |contributor| %>
       <tr>
         <td><%= contributor.org_name %></td>
-        <td><%= contributor.pacs %></td>
-        <td><%= contributor.indivs %></td>
-        <td><%= contributor.total %></td>
+        <td><%= currency(contributor.pacs) %></td>
+        <td><%= currency(contributor.indivs) %></td>
+        <td><%= currency(contributor.total) %></td>
       </tr>
       <% end %>
     </tbody>
@@ -78,9 +78,9 @@
       <% politician.top_industries.each do |contributor| %>
       <tr>
         <td><%= contributor.industry_name %></td>
-        <td><%= contributor.pacs %></td>
-        <td><%= contributor.indivs %></td>
-        <td><%= contributor.total %></td>
+        <td><%= currency(contributor.pacs) %></td>
+        <td><%= currency(contributor.indivs) %></td>
+        <td><%= currency(contributor.total) %></td>
       </tr>
       <% end %>
     </tbody>
