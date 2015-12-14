@@ -4,7 +4,7 @@ class ContributionSummary < ActiveRecord::Base
     ContributionSummary.create(cycle: summary["cycle"],
                                  chamber: summary["chamber"],
                                  total: summary["total"],
-                                 spend: summary["spend"],
+                                 spend: summary["spent"],
                                  debt: summary["debt"],
                                  cash_on_hand: summary["cash_on_hand"],
                                  politician: politician

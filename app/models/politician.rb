@@ -10,7 +10,7 @@ class Politician < ActiveRecord::Base
       if Politician.all.map(&:cid).include?(politician["cid"])
         next
       else
-        Politician.create(cid: politician["cid"], name: politician["firstlast"], gender: politician["gender"], firstelectoff: politician["firstelectoff"], party: politician["party"], office: self.office_parser(politician["office"]), lastname: politician["lastname"],state: self.state_parser(politician["office"]))
+        Politician.create(cid: politician["cid"], name: politician["firstlast"], gender: politician["gender"], firstelectoff: politician["first_elected"], party: politician["party"], office: self.office_parser(politician["office"]), lastname: politician["lastname"],state: self.state_parser(politician["office"]))
       end
     end
   end
