@@ -26,7 +26,7 @@
     <tbody>
       <% politician.contribution_summaries.each do |summary| %>
       <tr>
-        <td><%= currency(summary.cycle) %></td>
+        <td><%= summary.cycle %></td>
         <td><%= currency(summary.total) %></td>
         <td><%= currency(summary.spend) %></td>
         <td><%= currency(summary.debt) %></td>
