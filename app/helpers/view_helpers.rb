@@ -1,5 +1,6 @@
 def currency(int)
   final_string = '$'
+  int = int.to_i.round
   split_groups = int.to_s.split('').reverse.each_slice(3).to_a
   split_groups.reverse.each do |group|
     final_string += (group.reverse.join('') + ',')
